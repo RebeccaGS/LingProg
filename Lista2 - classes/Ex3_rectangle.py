@@ -9,7 +9,7 @@ class Rectangle:
         self.sideB = float(sideB)
 
     def returnValueSides(self):
-        return f"Side A of the rectangle is: {self.sideA} cm and the Side B of the rectangle is: {self.sideB} cm"
+        return f"Side A of the floor is: {self.sideA} cm and the Side B of the floor is: {self.sideB} cm"
 
     def perimeter(self):
         perimeter = 2*self.sideA+2*self.sideB
@@ -19,17 +19,24 @@ class Rectangle:
         area = self.sideA*self.sideB
         return area
 
-# Create the object
-rectangle1 = Rectangle(5,4)
+
 
 # Question for the user about the sides
-newSideA = input("Whats the new sideA of the Rectangle? Put in cm please: ")
-newSideB = input("Whats the new sideB of the Rectangle? Put in cm please: ")
+sideA = input("Whats the sideA of the floor? Put in cm please: ")
+sideB = input("Whats the sideB of the floor? Put in cm please: ")
+
+# Create the object
+floor = Rectangle(sideA,sideB)
 
 # send to the class the newSides
-rectangle1.changeSides(newSideA,newSideB)
+floor.changeSides(sideA,sideB)
 
 # Print the values
-print(rectangle1.returnValueSides())
-print(f"The perimeter of the rectangle is: {rectangle1.perimeter()} cm")
-print(f"The area of the rectangle is: {rectangle1.area()} cm^2")
+print(floor.returnValueSides())
+
+# Baseboard quantity = perimeter
+print(f"The quantity of baseboard you need is: {floor.perimeter()} cm")
+
+# For calculate the quantity of floors, first you need to know the desired areaFloors, then, calcute.
+areaFloors = input("Whats the area of the Floors that you want to buy? Put in cm^2 please: ")
+print(f"The quantity of floors is: {floor.area()/float(areaFloors)}")
